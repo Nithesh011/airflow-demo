@@ -2,7 +2,7 @@
 from airflow import DAG
 from airflow.operators.python import PythonOperator,BranchPythonOperator
 from datetime import datetime,timedelta
-from airflow.operators.dummy import DummyOperator
+from airflow.operators.empty import EmptyOperator
 def check_number_parity():
     num=7
     if num % 2 ==0:
@@ -31,7 +31,7 @@ with DAG(
       default_args=args,
       ) as dag:
       
-      start=DummyOperator(task_id="start")
+      start=EmptyOperator(task_id="start")
       
       branch=BranchPythonOperator(task_id='branch_task',
              python_callable=check_number_parity)
@@ -42,7 +42,7 @@ with DAG(
       odd_task=PythonOperator(task_id="odd_task",
                python_callable=print_odd)
        
-      finished_task=DummyOperator(task_id="Tasks_are_succeeded",
+      finished_task=EmptyOperator(task_id="Tasks_are_succeeded",
                trigger_rule="all_done")
 
 start >> branch >> [even_task,odd_task] >> finished_task
