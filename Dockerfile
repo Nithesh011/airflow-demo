@@ -1,5 +1,5 @@
 # Dockerfile
-FROM quay.io/astronomer/ap-airflow:2.7.3-buster
+FROM quay.io/astronomer/ap-airflow:2.4.3-5
 
 # Optional: install extra Python dependencies
 COPY requirements.txt .
