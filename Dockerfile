@@ -1,7 +1,6 @@
-# Dockerfile
-FROM quay.io/astronomer/ap-airflow:2.4.3-5
+# Use the Astro runtime as base
+FROM quay.io/astronomer/astro-runtime:8.3.2
 
-# Optional: install extra Python dependencies
+# Optional: copy and install Python dependencies
 COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
-
