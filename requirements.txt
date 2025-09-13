@@ -1,3 +1,0 @@
-# Add extra Python packages if needed, else keep empty
-# Example:
-# pandas==2.2.2

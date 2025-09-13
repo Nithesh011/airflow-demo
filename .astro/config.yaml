@@ -1,5 +1,0 @@
-# .astro/config.yaml
-project:
-  name: airflow-demo
-  runtime: "python3.10"
-  executor: "Celery"  # or "LocalExecutor" depending on your Astro deployment
